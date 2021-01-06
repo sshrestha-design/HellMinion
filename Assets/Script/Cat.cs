@@ -15,7 +15,7 @@ public class Cat : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 	}
 	
-	// Update is called once per frame
+	// Obsolete Controls . This function is not required
 	void Update () {
 		dirX = Input.GetAxis ("Horizontal") * moveSpeed;
 		dirY = Input.GetAxis ("Vertical") * moveSpeed;
