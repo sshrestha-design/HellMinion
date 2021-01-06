@@ -57,7 +57,7 @@ if(hit.collider != null)
          audioSource.Play();
    }
 }
-
+//Movement and animation function are done in SetTarget and Move
 void SetTargetPosition()
 {
 targetposition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -77,5 +77,6 @@ if(transform.position==targetposition)
 }
 void Moveback()
 {
+//Not in Range.Update Required
 }
 }
