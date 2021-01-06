@@ -12,3 +12,4 @@ Music: DEgITx
 Boss Arts:
 
 Jerom/Atros/Manveru
+![](image.png)
