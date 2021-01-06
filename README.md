@@ -12,4 +12,5 @@ Music: DEgITx
 Boss Arts:
 
 Jerom/Atros/Manveru
-https://github.com/sshrestha-design/HellMinion/blob/main/Image.png
+
+❮img src="main/Image.png" ❯
