@@ -13,4 +13,4 @@ Boss Arts:
 
 Jerom/Atros/Manveru
 
-❮img src="Image.png" ❯
+
