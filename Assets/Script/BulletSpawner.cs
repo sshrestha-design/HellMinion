@@ -23,7 +23,7 @@ public class BulletSpawner : MonoBehaviour
         rotations = new float[numberOfBullets];
         if (!isRandom)
         {
-            /* 
+            /*
              * This doesn't need to be in update because the rotations will be the same no matter what
              * Unless if we change min Rotation and max Rotation Variables leave this in Start.
              */
@@ -52,13 +52,13 @@ public class BulletSpawner : MonoBehaviour
         return rotations;
 
     }
-    
+
     // This will set random rotations evenly distributed between the min and max Rotation.
     public float[] DistributedRotations()
     {
         for (int i = 0; i < numberOfBullets; i++)
         {
-            var fraction = (float)i / ((float)numberOfBullets - 1);
+            var fraction = numberOfBullets <= 1 ? 0.5f : (float)i / ((float)numberOfBullets - 1);
             var difference = maxRotation - minRotation;
             var fractionOfDifference = fraction * difference;
             rotations[i] = fractionOfDifference + minRotation; // We add minRotation to undo Difference
@@ -79,7 +79,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < numberOfBullets; i++)
         {
             spawnedBullets[i] = Instantiate(bulletResource, transform);
-            
+
             var b = spawnedBullets[i].GetComponent<Bullet>();
             b.rotation = rotations[i];
             b.speed = bulletSpeed;

@@ -51,10 +51,13 @@ if(hit.collider != null)
    if(isMoving)
    {
      Move();
-     int index = Random.Range(0, shoot.Length);
+     if (!audioSource.isPlaying && shoot != null && shoot.Length > 0)
+     {
+         int index = Random.Range(0, shoot.Length);
          shootClip = shoot[index];
          audioSource.clip = shootClip;
          audioSource.Play();
+     }
    }
 }
 //Movement and animation function are done in SetTarget and Move
