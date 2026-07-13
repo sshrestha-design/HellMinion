@@ -5,46 +5,46 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
-public GameObject tutorials;
-public GameObject Credits;
+public GameObject tutorialPanel;
+public GameObject creditsPanel;
     void Start()
     {
-tutorials.SetActive(false);
-Credits.SetActive(false);
+tutorialPanel.SetActive(false);
+creditsPanel.SetActive(false);
     }
      private void Update()
     {
         Escape();
     }
 
-public void Newgame()
+public void StartGame()
 {
-          
+
         SceneManager.LoadScene(1);
 }
-public void tutorial()
+public void OpenTutorial()
 {
-tutorials.SetActive(true);
+tutorialPanel.SetActive(true);
 }
 public void Quit()
 {
-
+    Application.Quit();
 }
-public void Credit()
+public void OpenCredits()
 {
-Credits.SetActive(true);
+creditsPanel.SetActive(true);
 }
 public void Escape()
 {
     if(Input.GetKeyDown(KeyCode.Escape))
     {
-        tutorials.SetActive(false);
-        Credits.SetActive(false);
+        tutorialPanel.SetActive(false);
+        creditsPanel.SetActive(false);
     }
 }
-public void close()
+public void ClosePanels()
 {
-    tutorials.SetActive(false);
-    Credits.SetActive(false);
+    tutorialPanel.SetActive(false);
+    creditsPanel.SetActive(false);
 }
 }
