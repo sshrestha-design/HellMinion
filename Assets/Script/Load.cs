@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Load : MonoBehaviour
 {
-public int thislevel;
+public int levelToLoad;
     void Start()
     {
 
@@ -13,7 +13,7 @@ public int thislevel;
 
 public void load()
 {
-          
-        SceneManager.LoadScene(thislevel);
+
+        SceneManager.LoadScene(levelToLoad);
 }
 }

@@ -1466,9 +1466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee588b29b1d7dd4fb8a567f0d212a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: {fileID: 0}
+  rangeIndicator: {fileID: 0}
   runSpeed: 20
-  ranger: {fileID: 344933138}
+  rangerObject: {fileID: 344933138}
   animator: {fileID: 527295785}
   shoot:
   - {fileID: 8300000, guid: 0c2f0b2072e76f74dadbcde9d185b078, type: 3}
@@ -1778,8 +1778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  healths: {fileID: 110511389}
-  Restart: {fileID: 1049701003}
+  healthText: {fileID: 110511389}
+  restartPanel: {fileID: 1049701003}
 --- !u!1 &538121303
 GameObject:
   m_ObjectHideFlags: 0
@@ -6705,7 +6705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4220cb1329e42f459038bcc8a87a22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thislevel: 0
+  levelToLoad: 0
 --- !u!4 &1645467158890145274
 Transform:
   m_ObjectHideFlags: 0
@@ -6870,7 +6870,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2859809296096142304, guid: 6fbe085bab9677343b3dd21782a1f933,
         type: 3}
-      propertyPath: thislevel
+      propertyPath: levelToLoad
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2859809296096142305, guid: 6fbe085bab9677343b3dd21782a1f933,

@@ -6,14 +6,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
    Rigidbody2D body;
-   private Vector3 targetposition;
+   private Vector3 targetPosition;
    private bool isMoving;
 
 
-public SpriteRenderer range;
+public SpriteRenderer rangeIndicator;
 
 public float runSpeed = 20.0f;
-public GameObject ranger;
+public GameObject rangerObject;
 public Animator animator;
  AudioSource audioSource;
  public AudioClip[] shoot;
@@ -22,7 +22,7 @@ public Animator animator;
 void Start ()
 {
    body = GetComponent<Rigidbody2D>();
-   ranger.SetActive(false);
+   rangerObject.SetActive(false);
       audioSource = gameObject.GetComponent<AudioSource>();
 }
 
@@ -31,11 +31,11 @@ void Update()
 
    if(Input.GetKeyDown("space"))
    {
-ranger.SetActive(true);
+rangerObject.SetActive(true);
    }
     if(Input.GetKeyUp("space"))
    {
-ranger.SetActive(false);
+rangerObject.SetActive(false);
    }
    if(Input.GetMouseButtonDown(0))
    {
@@ -56,8 +56,8 @@ if(hit.collider != null)
 //Movement and animation function are done in SetTarget and Move
 void SetTargetPosition()
 {
-targetposition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-targetposition.z=transform.position.z;
+targetPosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+targetPosition.z=transform.position.z;
 isMoving=true;
 animator.SetBool("IsJumping",true);
 if (shoot != null && shoot.Length > 0)
@@ -74,14 +74,14 @@ if (shoot != null && shoot.Length > 0)
 public void Move()
 {
 
-transform.position=Vector3.MoveTowards(transform.position,targetposition,runSpeed*Time.deltaTime);
-if(transform.position==targetposition)
+transform.position=Vector3.MoveTowards(transform.position,targetPosition,runSpeed*Time.deltaTime);
+if(transform.position==targetPosition)
 {
    isMoving=false;
    animator.SetBool("IsJumping",false);
 }
 }
-void Moveback()
+void MoveBack()
 {
 //Not in Range.Update Required
 }

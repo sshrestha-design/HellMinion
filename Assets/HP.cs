@@ -4,25 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HP : MonoBehaviour
-{  
+{
     public float health;
-    public Text healths;
-public GameObject Restart;
+    public Text healthText;
+public GameObject restartPanel;
  void Start()
 {   health=10;
- Restart.SetActive(false);
+ restartPanel.SetActive(false);
 }
 void Update()
-{                        
- healths.text=health.ToString();
+{
+ healthText.text=health.ToString();
 
 if(health<=0)
          {
-             Restart.SetActive(true);
+             restartPanel.SetActive(true);
              Time.timeScale = 0;
          }
          else{
-             Restart.SetActive(false);
+             restartPanel.SetActive(false);
                           Time.timeScale = 1;
 
          }
@@ -35,7 +35,7 @@ if(health<=0)
                       health-=1;
 other.gameObject.SetActive (false);
 
-         
+
      }
 }
 }
