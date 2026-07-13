@@ -8,14 +8,14 @@ public class PlayerController : MonoBehaviour
    Rigidbody2D body;
    private Vector3 targetposition;
    private bool isMoving;
- 
+
 
 public SpriteRenderer range;
 
 public float runSpeed = 20.0f;
 public GameObject ranger;
 public Animator animator;
- AudioSource audioSource; 
+ AudioSource audioSource;
  public AudioClip[] shoot;
  private AudioClip shootClip;
 
@@ -28,7 +28,7 @@ void Start ()
 
 void Update()
 {
- 
+
    if(Input.GetKeyDown("space"))
    {
 ranger.SetActive(true);
@@ -37,7 +37,7 @@ ranger.SetActive(true);
    {
 ranger.SetActive(false);
    }
-   if(Input.GetMouseButton(0))
+   if(Input.GetMouseButtonDown(0))
    {
       RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -45,16 +45,12 @@ if(hit.collider != null)
 {
    if(hit.collider.tag=="Platform")
  {SetTargetPosition();}}
-     
-      
+
+
    }
    if(isMoving)
    {
      Move();
-     int index = Random.Range(0, shoot.Length);
-         shootClip = shoot[index];
-         audioSource.clip = shootClip;
-         audioSource.Play();
    }
 }
 //Movement and animation function are done in SetTarget and Move
@@ -64,10 +60,20 @@ targetposition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
 targetposition.z=transform.position.z;
 isMoving=true;
 animator.SetBool("IsJumping",true);
+if (shoot != null && shoot.Length > 0)
+{
+    int index = Random.Range(0, shoot.Length);
+    shootClip = shoot[index];
+    if (audioSource != null)
+    {
+        audioSource.clip = shootClip;
+        audioSource.Play();
+    }
+}
 }
 public void Move()
 {
-   
+
 transform.position=Vector3.MoveTowards(transform.position,targetposition,runSpeed*Time.deltaTime);
 if(transform.position==targetposition)
 {
