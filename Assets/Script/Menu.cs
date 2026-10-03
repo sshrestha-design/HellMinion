@@ -19,7 +19,7 @@ Credits.SetActive(false);
 
 public void Newgame()
 {
-          
+
         SceneManager.LoadScene(1);
 }
 public void tutorial()
@@ -28,7 +28,7 @@ tutorials.SetActive(true);
 }
 public void Quit()
 {
-
+    Application.Quit();
 }
 public void Credit()
 {

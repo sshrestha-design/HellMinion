@@ -15,8 +15,11 @@ public class Bullet1 : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
 		target = GameObject.FindObjectOfType<Cat>();
-		moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
-		rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+		if (target != null)
+		{
+			moveDirection = (target.transform.position - transform.position).normalized * moveSpeed;
+			rb.velocity = new Vector2 (moveDirection.x, moveDirection.y);
+		}
 		Destroy (gameObject, 3f);
 	}
 
